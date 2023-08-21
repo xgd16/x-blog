@@ -1,0 +1,47 @@
+$leftViewMargin: 10px;
+$leftViewWidth: 300px;
+$leftViewHeight: calc(auto - $leftViewMargin * 2 - 10px);
+$leftViewBorderRadius: 30px;
+$leftViewImageBoxWidth: calc($leftViewWidth - 30px);
+$leftViewBackgroundColor: #0d1116;
+//$leftViewBackgroundColor: #124bbe;
+
+
+.left-view {
+  width: $leftViewWidth;
+  height: $leftViewHeight;
+  border-radius: $leftViewBorderRadius;
+  margin: $leftViewMargin;
+  box-shadow: 0 0 15px 0 $leftViewBackgroundColor;
+  background-color: $leftViewBackgroundColor;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-blend-mode: color;
+}
+
+.left-view-image-box {
+  padding: 0 10px;
+  margin: 0 auto;
+  width: $leftViewImageBoxWidth;
+  height: $leftViewImageBoxWidth;
+  border-radius: calc($leftViewBorderRadius - 10px);
+  background-color: #6797c796;
+  background-blend-mode: multiply;
+  overflow: hidden;
+  background-size: cover;
+  background-position-y: -20px;
+  border: 3px solid #ffffff;
+}
+
+.left-view-username {
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.left-view-icon-list {
+  color: #ffffff;
+  text-align: center;
+  font-size: 30px;
+}

@@ -1,0 +1,5 @@
+.display-text-without-wrap {
+  white-space: nowrap; /* 防止换行 */
+  overflow: hidden; /* 超出部分隐藏 */
+  text-overflow: ellipsis; /* 使用省略号表示被截断的内容 */
+}

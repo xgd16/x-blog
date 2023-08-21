@@ -1,0 +1,63 @@
+@import "../leftView/leftView";
+@import "../../scss/common";
+
+$articleItemTitleHeight: 19px;
+$articleItemTitlePadding: 10px;
+
+
+
+.article-item {
+  background-color: $leftViewBackgroundColor;
+  border-radius: $leftViewBorderRadius;
+  box-shadow: 0 0 15px 0 $leftViewBackgroundColor;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.article-item-title {
+  height: $articleItemTitleHeight;
+  padding: $articleItemTitlePadding 25px;
+  font-size: 15px;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px dashed #21262d;
+  cursor: pointer;
+  transition: .3s all;
+  @extend .display-text-without-wrap;
+}
+
+.article-item-title:hover {
+  background-color: #252C38BF;
+}
+
+.article-item-content {
+  max-height: calc(100% - $articleItemTitleHeight * 2 - $articleItemTitlePadding * 4 - 14px);
+  padding: 5px;
+  width: calc(100% - 10px);
+  overflow-y: auto;
+  transition: transform 0.5s ease-in-out;
+  transform: scale(.9);
+}
+
+
+.article-item-footer {
+  height: $articleItemTitleHeight;
+  text-align: center;
+  padding: $articleItemTitlePadding 25px;
+  color: #fff;
+  border-top: 2px solid #21262d;
+}
+
+.article-item-back {
+  position: absolute;
+  padding: 10px 25px;
+  color: #fff;
+  border-top-left-radius: $leftViewBorderRadius;
+  cursor: pointer;
+}
+
+.article-item-back:hover {
+  background-color: #252C38BF;
+}

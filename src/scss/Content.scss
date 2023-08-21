@@ -1,0 +1,11 @@
+
+$contentBoxPaddingLeftAndRight: 35px;
+
+.content-box {
+  width: 100%;
+  height: auto;
+  padding: 0 $contentBoxPaddingLeftAndRight;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap; /* 允许元素自动折行 */
+}
