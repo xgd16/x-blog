@@ -34,6 +34,7 @@ $articleItemTitlePadding: 10px;
 
 .article-item-content {
   max-height: calc(100% - $articleItemTitleHeight * 2 - $articleItemTitlePadding * 4 - 14px);
+  min-height: calc(100% - $articleItemTitleHeight * 2 - $articleItemTitlePadding * 4 - 14px);
   padding: 5px;
   width: calc(100% - 10px);
   overflow-y: auto;

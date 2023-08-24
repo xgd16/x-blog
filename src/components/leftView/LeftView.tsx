@@ -1,7 +1,7 @@
 import "./leftView.scss"
 import React from "react";
 import {GithubOutlined,InfoCircleOutlined} from "@ant-design/icons";
-import {goToUrl} from "../../lib/common";
+import {goToUrl} from "../../utils/common";
 
 type IconListType = {
     iconName: string

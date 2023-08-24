@@ -22,7 +22,7 @@ export default function ArticleDisplay(props: ArticleDisplayProps):JSX.Element {
     useEffect(() => {
         linkData.viewBackButton = true
         setLinkData(linkData)
-    }, [])
+    }, [linkData])
 
     return (
         <div className={"article-item"}>
