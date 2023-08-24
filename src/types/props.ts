@@ -6,4 +6,5 @@ export type ArticleDisplayData = {
     content: string
     createTime: string
     viewBackButton?: boolean
+    indexSort: number
 }

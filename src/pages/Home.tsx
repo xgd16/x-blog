@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import {Col, Pagination, Row} from "antd";
 import {ArticleDisplayData} from "../types/props";
 import {getArticleDisplayData} from "../api/home";
-import {ArticleDisplayList} from "../types/api/home";
+import QueueAnim from "rc-queue-anim"
 // 内容盒子的大小
 type contentBoxSizeType = {
     width: number
@@ -32,13 +32,12 @@ export default function Home() {
             page: page,
             size: size
         }).then((res) => {
-            console.log(res)
             let homeArticleData: ArticleDisplayData[] = []
-            homeArticleData = (res.data.list as ArticleDisplayData[])
+            homeArticleData = res.data.list
             setArticleList(homeArticleData)
-            let dataTotal = res.data.count
             // 计算最适合的展示方式
             setColSizeInfo(calcColSizeInfo(homeArticleData.length))
+            let dataTotal = res.data.count
             // 分页数据
             setPaginationTotal(dataTotal)
             // 是否使用分页位置
@@ -58,18 +57,32 @@ export default function Home() {
     }, []);
 
     const pageChange = (page: number, pageSize: number) => {
-        ArticleDisplayDataHandler(page, pageSize)
+        const homeArticleData:ArticleDisplayData[] =[]
+        setArticleList(homeArticleData)
+        // 计算最适合的展示方式
+        setColSizeInfo(calcColSizeInfo(homeArticleData.length))
+        setTimeout(() => {
+            ArticleDisplayDataHandler(page, pageSize)
+        }, 310)
     }
     // 渲染页面
     return (
         <>
-            <Row style={{height: rowHeight, width: '100%'}}>
+            <QueueAnim
+                className={'ant-row'}
+                style={{height: rowHeight, width: '100%', display: 'flex', flexFlow: 'row wrap', minWidth: 0}}
+                // leaveReverse={true}
+                type={'bottom'}
+                forcedReplay={true}
+                duration={250}
+                interval={5}
+            >
                 {
                     articleList.map((item, k) => {
-                        return <Col span={colSizeInfo.span} key={`${item.title}_${k}`} style={{width: contentBoxSize.width,padding: '10px',height: `calc(100% / ${colSizeInfo.yCount})`}}><ArticleDisplay data={item} /></Col>
+                        return <Col span={colSizeInfo.span} key={`${item.title}_${k}`} style={{width: contentBoxSize.width,padding: '10px',height: `calc(100% / ${colSizeInfo.yCount})`}} ><ArticleDisplay data={item} /></Col>
                     })
                 }
-            </Row>
+            </QueueAnim>
             <Pagination
                 style={{margin: "0 auto"}}
                 total={paginationTotal}
